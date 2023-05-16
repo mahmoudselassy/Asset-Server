@@ -1,12 +1,16 @@
 import express, { Request, Response } from "express";
 import { Asset } from "./Interfaces";
+import { Bard } from "./Classes/Bard";
+import timeout from "connect-timeout";
 const app = express();
 
 app.use(express.json());
+app.use(timeout("60s"));
 
-app.post("/evaluate", (req: Request, res: Response) => {
+app.post("/evaluate", async (req: Request, res: Response) => {
   const asset: Asset = req.body;
-  
+  const re = await Bard.sendMessage(asset);
+  console.log(re.response);
   res.sendStatus(200);
 });
 

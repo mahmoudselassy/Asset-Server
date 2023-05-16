@@ -31,7 +31,7 @@ def run():
     server_address = ('localhost', 8000)
     httpd = HTTPServer(server_address, SimpleHTTPRequestHandler)
     print('Starting server...')
-    httpd.timeout = 120
+    httpd.timeout = 60
     httpd.serve_forever()
 
 run()
