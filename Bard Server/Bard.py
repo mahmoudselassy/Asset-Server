@@ -15,7 +15,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         # Print the JSON data
         message= "hello" + json.dumps(json_request)
         
-        output=bardapi.core.Bard().get_answer(message)['content']
+        output=bardapi.core.Bard(timeout=60).get_answer(message)['content']
         # Send a response back to the client
         json_response={
             "response":output
