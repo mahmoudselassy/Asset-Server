@@ -1,4 +1,0 @@
-{
-    'expectedLifeTimeLeftIn days':
-    'requiredMaintainincae': 'Periodic maintainance' 
-}
