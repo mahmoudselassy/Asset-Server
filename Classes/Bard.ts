@@ -1,10 +1,9 @@
-import { Asset } from "../Interfaces";
 class Bard {
   static async sendMessage(message: string) {
-    const url = "https://api.bardapi.dev/chat";
+    const url = `${process.env.BARD_URL}`;
     const options = {
       method: "POST",
-      headers: { Authorization: "Bearer 3b595190-b3a2-489a-ba29-9a7a67d0e437" },
+      headers: { Authorization: `Bearer ${process.env.BARD_API_KEY}` },
       body: JSON.stringify({ input: message }),
     };
     const response = await fetch(url, options);
